@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* setting non copyright image as background and colour.*/
+body{
+  background-color: rgb(255, 254, 255);
+  background-image: url(https://img.freepik.com/free-photo/abstract-smooth-empty-grey-studio-well-use-as-background-business-report-digital-website-template-backdrop_1258-55967.jpg);
+}
+/*Center helps aligin all items on the website*/
+.center {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    display: inline;
+  }
+
+button{
+  padding: 10px;
+  margin:auto;
+  background-color:white;
+}
+
+a {
+  border: 1px solid #000000;
+  background:#000000;
+  padding: 1px;
+  color:aliceblue;
+  border: radius 4px;
+}
+
+li{
+padding: 10%;
+align-items: center;
+margin :0 auto;
+margin-left: auto;
+display: inline-block;
+padding: 20px 100px;
+}
+
+a:link{
+background-color:rgb(255, 255, 255);
+}
+
+body{
+background-color: rgb(255, 255, 255);
+}
+
+.container{
+
+  width: 50px;;
+  height: 50px;;
+  background:white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+form{
+  flex-direction: column;
+  display: flex;
+  border-radius: 500px;
+
+
+
+}
