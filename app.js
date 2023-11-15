@@ -1,36 +1,20 @@
 //imports
 const express = require('express');
-const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
-const session = require("express-session");
 const app = express();
 
-const port = 4000;
-const routes=require("./servSer/routes/routes.js");
+const port = 3000;
 const bodyParser = require('body-parser');
-mongoose.connect('mongodb://localhost:27017/node',{useNewUrlParser: true,useUnifiedTopology: true});
-const db = mongoose.connection;
 
-db.on("error", console.error.bind(console, "MongoDB connection"));
-db.once("open", () => {
-  console.log("database connected");
-
-});
+mongoose.connect('mongodb://localhost:27017/node',{useNewUrlParser: true,useUnifiedTopology: true,});
 const Car = mongoose.model('car',{
-  Brand: String,
-  Model: String,
+  brand: String,
+  model: String,
   year: Number,
 })
-app.use('/', routes);
-app.set('views', './views');
+
 app.set('view engine', 'ejs');
-app.set('layout','./layouts/home');
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use('/css', express.static(__dirname+ 'public/css/'));
-app.use('/js', express.static(__dirname+ 'public/js'));
-app.use('/img', express.static(__dirname+ 'public/img'));
-app.use (bodyParser,bodyParser.urlencoded({extended:true}));
+app.use (bodyParser.urlencoded({extended:true}));
 
 app.get('', (req, res) => {
   res.render('index');
@@ -46,18 +30,18 @@ app.get('/car', async (req,res) =>{
 }
 
 app.post('/addcar',async(req,res)=> {
-  const{Brand,model,year} = req.body;
+  const{brand,model,year} = req.body;
 })
 
 const newcar=new car({
-  Brand,
+  brand,
   model,
   year,
 });
 
 try{
   await newcar.save();
-  res.redirect('/');
+  res.redirect('/car');
 } catch (error) {
   res.status(500).send(error.message);
 
