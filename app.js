@@ -13,6 +13,7 @@ const Car = mongoose.model('car',{
   year: Number,
 })
 
+
 app.set('view engine', 'ejs');
 app.use (bodyParser.urlencoded({extended:true}));
 
